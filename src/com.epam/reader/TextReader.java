@@ -1,5 +1,7 @@
 package com.epam.reader;
 
+import com.epam.exception.InvalidNumberOfLineException;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -17,12 +19,14 @@ public class TextReader {
     }
   }
 
-  public String readTextFile(String filePath, int numberOfLine) {
+  public String readLineFromTextFile(String filePath, int numberOfLine) {
+    List<String> textFile = readTextFile(filePath);
     try {
-      return Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8).get(numberOfLine);
-    } catch (IOException e) {
-      System.err.printf("File not found");
-      return null;
+      return textFile.get(numberOfLine);
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println("Incorrect line");
     }
+    return null;
   }
+
 }

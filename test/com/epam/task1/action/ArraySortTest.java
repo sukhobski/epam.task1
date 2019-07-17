@@ -1,42 +1,45 @@
 package com.epam.task1.action;
 
+import com.epam.task1.init.GenerateArray;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
 
 public class ArraySortTest {
 
-  ArraySort arraySort;
-  double[] array = {32.0, 45.0, 56.0, 76.0, 87.0, 88.0, -12.0, 0.0, -7.0, 3.0, 12.0};
-  double[] expectedArray = new double[]{32.0, 45.0, 56.0, 76.0, 87.0, 88.0, -12.0, 0.0, -7.0, 3.0, 12.0};
-
+  ArraySort arraySort =  new ArraySort();;
+  GenerateArray generateArray = new GenerateArray();;
+  double[] array;
+  double[] expectedArray;
 
   @BeforeClass
   public void setUp() {
-    arraySort = new ArraySort();
+    array = generateArray.generateDoubleArray(100,30);
+    expectedArray = new double[array.length];
+    expectedArray = array.clone();
     Arrays.sort(expectedArray);
   }
 
   @Test
   public void BubbleSortTest() {
-    double[] actualArray = array;
+    double[] actualArray = array.clone();
     arraySort.bubbleSort(actualArray);
     assertEquals(actualArray, expectedArray);
   }
 
   @Test
-  public void SelectionSortTest() { // класс + Тест
-    double[] actualArray = array;
+  public void SelectionSortTest() {
+    double[] actualArray = array.clone();
     arraySort.insertionSort(actualArray);
     assertEquals(actualArray, expectedArray);
   }
 
   @Test
   public void insertionSortTest() {
-    double[] actualArray = array;
+    double[] actualArray = array.clone();
     arraySort.selectionSort(actualArray);
     assertEquals(actualArray, expectedArray);
   }

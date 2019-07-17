@@ -17,7 +17,7 @@ public class ArraySortTest {
 
   @BeforeClass
   public void setUp() {
-    array = generateArray.generateDoubleArray(100,30);
+    array = generateArray.generateDoubleArray(100,-1000,1000);
     expectedArray = new double[array.length];
     expectedArray = array.clone();
     Arrays.sort(expectedArray);

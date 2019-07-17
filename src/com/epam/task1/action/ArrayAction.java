@@ -1,4 +1,4 @@
-package com.epam.action;
+package com.epam.task1.action;
 
 public class ArrayAction {
 
@@ -43,7 +43,7 @@ public class ArrayAction {
     }
   }
 
-  public double findMinimumNumber(double[] array) {
+  public double findMinimum(double[] array) {
     double minimumNumber = array[0];
     for (double number :
             array) {
@@ -54,7 +54,7 @@ public class ArrayAction {
     return minimumNumber;
   }
 
-  public double findMaximumNumber(double[] array) {
+  public double findMaximum(double[] array) {
     double maximumNumber = array[0];
     for (double number :
             array) {
@@ -73,7 +73,7 @@ public class ArrayAction {
     }
   }
 
-  public double findAverageValue(double[] array) {
+  public double findAverage(double[] array) {
     int sum = 0;
     for (double number :
             array) {

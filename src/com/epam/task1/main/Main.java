@@ -1,10 +1,10 @@
-package com.epam.main;
+package com.epam.task1.main;
 
-import com.epam.action.ArrayAction;
-import com.epam.init.InitArray;
-import com.epam.parser.Parsers;
-import com.epam.printer.ConsolePrinter;
-import com.epam.reader.TextReader;
+import com.epam.task1.action.ArrayAction;
+import com.epam.task1.parser.Parsers;
+import com.epam.task1.printer.ConsolePrinter;
+import com.epam.task1.reader.TextReader;
+import com.epam.task1.init.InitArray;
 
 import java.io.IOException;
 import java.util.List;

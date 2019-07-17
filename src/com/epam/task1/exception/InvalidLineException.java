@@ -1,4 +1,4 @@
-package com.epam.exception;
+package com.epam.task1.exception;
 
 public class InvalidLineException extends Exception{
 

@@ -1,4 +1,4 @@
-package com.epam.reader;
+package com.epam.task1.reader;
 
 
 import java.io.IOException;

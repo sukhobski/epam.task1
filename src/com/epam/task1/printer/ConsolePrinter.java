@@ -1,4 +1,4 @@
-package com.epam.printer;
+package com.epam.task1.printer;
 
 public class ConsolePrinter {
 

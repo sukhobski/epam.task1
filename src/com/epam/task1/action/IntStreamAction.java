@@ -23,15 +23,8 @@ public class IntStreamAction {
     return intSummaryStatistics.getMax();
   }
 
-//  public int[] sortIntSteam() {
-//    return intStream.sorted().toArray();
-//  }
-
-  public String summaryStatistics(IntStream intStream) {
+  public String summaryStatistics() {
     return intSummaryStatistics.toString();
   }
-
-
-
 
 }

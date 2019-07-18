@@ -4,12 +4,16 @@ import java.util.List;
 
 public class TextParser {
 
-  private final static String PARSE_REGEX_ARRAY_DOUBLE = "(\\s+\\-?\\d+.?\\d*\\s+)*";
+  private final static String PARSE_REGEX_ARRAY_DOUBLE = "(\\s*\\-?\\d+\\.?\\d*\\s*)*";
+
   private final static String SPLIT_REGEX = "\\s+";
 
+  public boolean isLineValid(String line) {
+    return  line.matches(PARSE_REGEX_ARRAY_DOUBLE) && !line.isEmpty();
+  }
 
   public void removeIncorrectLines(List<String> lines) {
-    lines.removeIf(line -> !line.matches(PARSE_REGEX_ARRAY_DOUBLE) || line.isEmpty());
+    lines.removeIf(line -> !isLineValid(line));
   }
 
   public String[] convertListToStringArray(List<String> lines) {

@@ -1,47 +1,45 @@
 package com.epam.task1.action;
 
-import com.epam.task1.init.GenerateArray;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class ArraySortTest {
 
-  ArraySort arraySort =  new ArraySort();;
-  GenerateArray generateArray = new GenerateArray();;
-  double[] array;
-  double[] expectedArray;
+  private ArraySort arraySort =  new ArraySort();
 
-  @BeforeClass
-  public void setUp() {
-    array = generateArray.generateDoubleArray(100,-1000,1000);
-    expectedArray = new double[array.length];
-    expectedArray = array.clone();
-    Arrays.sort(expectedArray);
+  @DataProvider(name = "data")
+  public Object[][] createData(){
+    return new Object[][]{
+            {new double[]{12, 5, 6, -12, 0, 3.9}, new double[]{-12, 0, 3.9, 5, 6, 12}},
+            {new double[]{1, 2, 1, 5, 3}, new double[]{1, 1, 2, 3, 5}},
+            {new double[]{0}, new double[]{0}}
+    };
   }
 
-  @Test
-  public void BubbleSortTest() {
-    double[] actualArray = array.clone();
-    arraySort.bubbleSort(actualArray);
-    assertEquals(actualArray, expectedArray);
+
+  @Test(dataProvider = "data")
+  public void bubbleSortTest(double[]array, double[] expected) {
+    double[] actual = array.clone();
+    arraySort.bubbleSort(actual);
+    assertTrue(Arrays.equals(actual,expected));
   }
 
-  @Test
-  public void SelectionSortTest() {
-    double[] actualArray = array.clone();
-    arraySort.insertionSort(actualArray);
-    assertEquals(actualArray, expectedArray);
+  @Test(dataProvider = "data")
+  public void insertionSortTest(double[]array, double[] expected) {
+    double[] actual = array.clone();
+    arraySort.insertionSort(actual);
+    assertTrue(Arrays.equals(actual,expected));
   }
 
-  @Test
-  public void insertionSortTest() {
-    double[] actualArray = array.clone();
-    arraySort.selectionSort(actualArray);
-    assertEquals(actualArray, expectedArray);
+  @Test(dataProvider = "data")
+  public void selectionSortTest(double[]array, double[] expected) {
+    double[] actual = array.clone();
+    arraySort.selectionSort(actual);
+    assertTrue(Arrays.equals(actual,expected));
   }
 
 }

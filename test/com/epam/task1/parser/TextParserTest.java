@@ -7,11 +7,25 @@ import static org.testng.Assert.assertTrue;
 
 public class TextParserTest {
 
-  TextParser textParser = new TextParser();
+  private TextParser textParser = new TextParser();
+
+  @DataProvider
+  public Object[][] isLineValidData(){
+    return new Object[][]{
+            {"32.0 45.0 56.0 76.0 87.0 88.0 -12.0 0.0 -7.0 3.0 12.0"},
+            {"1 2 3 0 -50 0.001"},
+            {"0     6 3"}
+    };
+  }
+
+  @Test(dataProvider = "isLineValidData")
+  public void isLineValidTest(String inputLine) {
+    boolean actualValue = textParser.isLineValid(inputLine);
+    assertTrue(actualValue);
+  }
+
 
   @Test
-  public void RemoveIncorrectLinesTest() {
-    String inputLine = "32.0 45.0 56.0 76.087.0 88.0 -12.0 0.0 -7.0 3.0 1232.0 45.0 56.0 76.0\n";
-    assertTrue(textParser.isLineValid(inputLine));
+  public void testRemoveIncorrectLines() {
   }
 }

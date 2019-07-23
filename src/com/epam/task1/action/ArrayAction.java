@@ -42,8 +42,11 @@ public class ArrayAction {
     return sum / array.length;
   }
 
-  public double findSum(double[] array) {
-    int sum = 0;
+  public Double findSum(double[] array) {
+    if (array.length == 0 || array == null) {
+      return null;
+    }
+    double sum = 0;
     for (double number :
             array) {
       sum += number;

@@ -1,6 +1,5 @@
 package com.epam.task1.reader;
 
-
 import com.epam.task1.exception.InvalidFileException;
 import com.epam.task1.exception.InvalidNumberOfLineException;
 

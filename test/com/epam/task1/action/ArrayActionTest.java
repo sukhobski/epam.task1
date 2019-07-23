@@ -75,7 +75,9 @@ public class ArrayActionTest {
     return new Object[][]{
             {new double[]{1, 3, 4, -12, 4, 6, 8, -4, 0, 3}, 13},
             {new double[]{1,2,3}, 6},
-            {new double[]{-5, -78, 0, -99}, -182}
+            {new double[]{-5, -78, 0, -99}, -182},
+            {new double[]{}, null},
+
     };
   }
   @Test(dataProvider = "findSumData")

@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 
 public class IntStreamAction {
 
-  IntSummaryStatistics intSummaryStatistics;
+  private IntSummaryStatistics intSummaryStatistics;
 
   public IntStreamAction(IntStream intStream) {
     intSummaryStatistics = intStream.summaryStatistics();
@@ -23,8 +23,8 @@ public class IntStreamAction {
     return intSummaryStatistics.getMax();
   }
 
-  public String summaryStatistics() {
-    return intSummaryStatistics.toString();
+  public IntSummaryStatistics getIntSummaryStatistics() {
+    return intSummaryStatistics;
   }
 
 }
